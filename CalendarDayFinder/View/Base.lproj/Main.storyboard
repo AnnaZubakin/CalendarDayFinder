@@ -293,6 +293,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dayTextField" destination="8tA-7q-qbA" id="UCz-fa-cRc"/>
+                        <outlet property="findDay" destination="Yxs-Yf-Iu6" id="B8X-tW-0qN"/>
+                        <outlet property="monthTextField" destination="Sdv-33-zCO" id="Nr7-7l-NQu"/>
+                        <outlet property="resultLabel" destination="f1t-Ca-FzQ" id="pyt-os-Hc3"/>
+                        <outlet property="yearTextField" destination="mnF-c8-8bn" id="2S9-hG-CyI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
