@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    var isResultDisplayed = false
+    
     func findWeekDay() {
         guard let dayText = dayTextField.text, let monthText = monthTextField.text, let yearText = yearTextField.text,
             let day = Int(dayText), let month = Int(monthText), let year = Int(yearText) else {
@@ -58,34 +60,45 @@ class ViewController: UIViewController {
 
             // Change button text to "Clear"
             findDay.setTitle("Clear", for: .normal)
-            dayTextField.text = ""
-            monthTextField.text = ""
-            yearTextField.text = ""
+                    isResultDisplayed = true
+                } else {
+                    print("Invalid date")
+                }
         }
-    }
 
       
     
     @IBAction func findButtonTapped(_ sender: Any) {
-        findWeekDay()
+        if isResultDisplayed {
+                // Clear the fields and labels, change button text to "Find", and reset the flag
+                dayTextField.text = ""
+                monthTextField.text = ""
+                yearTextField.text = ""
+                resultLabel.text = ""
+                findDay.setTitle("Find", for: .normal)
+                isResultDisplayed = false
+            } else {
+                // Show the result
+                findWeekDay()
+            }
     }
+
 }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "info" {
-            // Get the new view controller using segue.destination.
-            guard let vc = segue.destination as? InfoViewController
-            else {
-                return
-            }
-            // Pass the selected object to the new view controller.
+    if segue.identifier == "info" {
+        if let vc = segue.destination as? InfoViewController {
+            // Получите dayOfWeekString из вашего расчета
+            let dayOfWeekString = "Понедельник" // Замените это значением вашего dayOfWeekString
             
-        //    vc.info
+            // Установите dayOfWeekString в InfoViewController
+            vc.dayOfWeekString = dayOfWeekString
         }
-    
+        
+        
     }
     
-
+}
 

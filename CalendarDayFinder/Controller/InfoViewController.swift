@@ -15,13 +15,11 @@ class InfoViewController: UIViewController {
     
     
     var info: String?
+    var dayOfWeekString: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-     
-                   appInfoLabel.text = "New Info Text"
-                   appDescriptionLabel.text = "New Description Text"
-               
-           }
+             // Используйте dayOfWeekString для обновления вашего интерфейса, например, установите его в appDescriptionLabel.
+             appDescriptionLabel.text = dayOfWeekString
+         }
        }
