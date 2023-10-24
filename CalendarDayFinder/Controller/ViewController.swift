@@ -30,14 +30,13 @@ class ViewController: UIViewController {
     func findWeekDay() {
         guard let dayText = dayTextField.text, let monthText = monthTextField.text, let yearText = yearTextField.text,
             let day = Int(dayText), let month = Int(monthText), let year = Int(yearText) else {
-                // Show an alert for invalid input
+                
                 let alert = UIAlertController(title: "Invalid Input", message: "Please enter valid numeric values for day, month, and year.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 present(alert, animated: true, completion: nil)
                 return
         }
 
-        // Validate the input (day should be between 1 and 31, month between 1 and 12)
         if day < 1 || day > 31 || month < 1 || month > 12 {
             let alert = UIAlertController(title: "Invalid Input", message: "Please enter valid values for day (1-31) and month (1-12).", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -45,7 +44,6 @@ class ViewController: UIViewController {
             return
         }
 
-        // Perform calculation and display the result
         let calendar = Calendar.current
         var dateComponents = DateComponents()
         dateComponents.year = year
@@ -58,7 +56,6 @@ class ViewController: UIViewController {
             let dayOfWeekString = dateFormatter.string(from: date)
             resultLabel.text = dayOfWeekString
 
-            // Change button text to "Clear"
             findDay.setTitle("Clear", for: .normal)
                     isResultDisplayed = true
                 } else {
@@ -70,7 +67,6 @@ class ViewController: UIViewController {
     
     @IBAction func findButtonTapped(_ sender: Any) {
         if isResultDisplayed {
-                // Clear the fields and labels, change button text to "Find", and reset the flag
                 dayTextField.text = ""
                 monthTextField.text = ""
                 yearTextField.text = ""
@@ -78,7 +74,6 @@ class ViewController: UIViewController {
                 findDay.setTitle("Find", for: .normal)
                 isResultDisplayed = false
             } else {
-                // Show the result
                 findWeekDay()
             }
     }
@@ -86,19 +81,14 @@ class ViewController: UIViewController {
 }
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
 func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "info" {
+        print("Preparing for segue: info")
         if let vc = segue.destination as? InfoViewController {
-            // Получите dayOfWeekString из вашего расчета
-            let dayOfWeekString = "Понедельник" // Замените это значением вашего dayOfWeekString
-            
-            // Установите dayOfWeekString в InfoViewController
+            let dayOfWeekString = "Monday"
             vc.dayOfWeekString = dayOfWeekString
+            vc.setupUI()
         }
-        
-        
     }
-    
 }
 
