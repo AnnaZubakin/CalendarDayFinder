@@ -25,13 +25,19 @@ class AppearenceViewController: UIViewController {
     
     
     @IBAction func openSettings(_ sender: Any) {
-        #warning("open ios simulator settings app, UIApplication")
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
     }
     
     
     func setLabelText() {
         var labelText = "Unable to specify UI style"
-         #warning("from light Mode is On to Dark Mode is On")
+        if self.traitCollection.userInterfaceStyle == .dark {
+                labelText = "Dark Mode is On"
+            } else {
+                labelText = "Light Mode is On"
+            }
         textLabel.text = labelText
         
     }

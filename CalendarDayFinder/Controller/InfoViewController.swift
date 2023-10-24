@@ -12,14 +12,16 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var appInfoLabel: UILabel!
     @IBOutlet weak var appDescriptionLabel: UILabel!
+    
+    
     var info: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        #warning("assign value to labels")
-
-        // Do any additional setup after loading the view.
-    }
-    
-   
-}
+        
+     
+                   appInfoLabel.text = "New Info Text"
+                   appDescriptionLabel.text = "New Description Text"
+               
+           }
+       }
