@@ -19,12 +19,13 @@ class InfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("InfoViewController: viewDidLoad")
+        print("test viewDidLoad")
         setupUI()
     }
     
     func setupUI() {
         appDescriptionLabel.text = dayOfWeekString
+        print("test setupUI")
     }
     
 }

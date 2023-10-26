@@ -52,9 +52,11 @@ class ViewController: UIViewController {
 
         if let date = calendar.date(from: dateComponents) {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "EEEE"
+            dateFormatter.locale = Locale(identifier: "lv_LV")
+            
+            dateFormatter.dateFormat = "EEE"
             let dayOfWeekString = dateFormatter.string(from: date)
-            resultLabel.text = dayOfWeekString
+            resultLabel.text = dayOfWeekString.capitalized
 
             findDay.setTitle("Clear", for: .normal)
                     isResultDisplayed = true
@@ -77,18 +79,19 @@ class ViewController: UIViewController {
                 findWeekDay()
             }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "infotest" {
+            if let vc = segue.destination as? InfoViewController {
+              //  let dayOfWeekString = "Monday"
+                vc.dayOfWeekString = resultLabel.text ?? "Monday"
+             //   vc.setupUI()
+            }
+        }
+    }
 
 }
     // MARK: - Navigation
 
-func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "info" {
-        print("Preparing for segue: info")
-        if let vc = segue.destination as? InfoViewController {
-            let dayOfWeekString = "Monday"
-            vc.dayOfWeekString = dayOfWeekString
-            vc.setupUI()
-        }
-    }
-}
+
 

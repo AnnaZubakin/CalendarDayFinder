@@ -281,7 +281,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="square.and.arrow.up.circle.fill" catalog="system" id="j4y-Kv-sia">
                             <color key="tintColor" red="0.2429668136" green="0.1705530948" blue="0.24314153190000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="XKT-IP-MeO" kind="show" identifier="info" id="ewd-Qa-2qV"/>
+                                <segue destination="XKT-IP-MeO" kind="show" identifier="infotest" id="ewd-Qa-2qV"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up.fill" catalog="system" id="2ad-ck-gp1">
@@ -355,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SYT-sf-8MH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="657.12143928035982"/>
+            <point key="canvasLocation" x="1041" y="750"/>
         </scene>
         <!--Appearence View Controller-->
         <scene sceneID="CHU-t2-gBF">
@@ -392,7 +392,9 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Settings"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Settings">
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="openSettings:" destination="5ZF-wR-psY" eventType="touchUpInside" id="7Dt-x6-2V1"/>
                                         </connections>
@@ -434,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9w-Pu-xvj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1714.4000000000001" y="2.2488755622188905"/>
+            <point key="canvasLocation" x="1922" y="3"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fFe-DX-shi">
